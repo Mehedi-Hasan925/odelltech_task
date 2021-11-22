@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title_block %}
+    Users
+{% endblock title_block %}
+
+{% block nav_block %}
+    <li class="nav-item" style="padding-right: 30px">
+              <a
+                class="nav-link"
+                aria-current="page"
+                href="{% url 'app_user_info:home_view' %}"
+                ><i class="fa fa-home fa-fw" aria-hidden="true"></i> Home</a
+              >
+            </li>
+            <li class="nav-item" style="padding-right: 30px">
+              <a class="nav-link active" href="{% url 'app_user_info:users' %}"
+                ><i class="fa fa-user fa-fw" aria-hidden="true"></i> Users</a
+              >
+            </li>
+{% endblock nav_block %}
+
+{% block body_block %}
+  
+    <div class="row mt-3 text-center">
+        <div class="col-md-10  mx-auto mt-3">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Country</th>
+                <th scope="col">Division</th>
+                <th scope="col">District</th>
+                <th scope="col">Upazilla</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for user in all_user %}
+              <tr>
+                
+                <td>{{user.name}}</td>
+                <td>{{user.country}}</td>
+                <td>{{user.Division}}</td>
+                <td>{{user.District}}</td>
+                <td>{{user.upazilla}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+{% endblock body_block %}

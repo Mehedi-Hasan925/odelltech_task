@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title_block %}
+    Home
+{% endblock title_block %}
+
+{% block body_block %}
+  
+    <div class="row mt-4">
+        {% if pattern %}
+                <div class="card mb-3" style="max-width: 540px;">
+                    {% for data in result %}
+                    <div class="row g-0">
+                        <div class="col-md-10">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ data.name }}</h5>
+                                <p class="card-text">Country: <b>{{ data.country}} </b><br>
+                                Division: <b>{{ data.Division}} </b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div>
+            
+        {% endif %}
+    </div>
+{% endblock body_block %}
